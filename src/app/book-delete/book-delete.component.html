@@ -1,0 +1,13 @@
+<div class="container">
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        {{errorMessage}}
+    </div>
+
+    <p>Вы собираетесь удалить следующую запись:</p>
+    <p>Title: {{currentBook?.title}}</p>
+    <p>Genre: {{currentBook?.genre}}</p>
+    <p>Published: {{currentBook?.published}}</p>
+
+    <button class="btn btn-default" (click)="goBack()">Cancel</button>
+    <button class="btn btn-primary" (click)="deleteBook()">Delete</button>
+</div>

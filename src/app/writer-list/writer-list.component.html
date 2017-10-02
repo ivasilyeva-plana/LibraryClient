@@ -1,0 +1,44 @@
+<div class="container">
+	<h2>List of Writers</h2>
+	<div class="search-div">
+		<div class="input-group">
+			<label class="label-input-group" for="country">Country:</label>
+			<select id=country [(ngModel)]="selectedCountry" class="form-control" >
+					<option [value]=""></option>
+					<option *ngFor="let country of this.service.CountryList" [value]="country">{{country}}</option>
+			</select>
+			<button class="btn btn-default " type="button" (click)="getWriters()" >Apply Filter</button>
+		</div>
+		<div class="input-group">
+			<label class="label-input-group" for="wr">Writer:</label>
+			<input id=wr type="text" [(ngModel)]="searchWriter" class="form-control" />
+			<button class="btn btn-default " type="button" (click)="getWriters()">Find</button>
+		</div>
+	</div>
+	<p>
+		<button class="btn btn-primary" (click)="createWriter()">Create New Writer</button>
+	</p>
+	<div *ngIf="errorMessage" class="alert alert-danger">
+		{{errorMessage}}
+	</div>
+	<table class="table table-striped">
+		<tr>
+			<th>Name</th>
+			<th>Country</th>
+			<th></th>
+		</tr>
+		<tr *ngFor="let writer of writers">
+			<td>
+				{{writer.name}}
+			</td>
+			<td>
+				{{writer.country}}
+			</td>
+			<td>
+				<button class="btn btn-default" (click)="editWriter(writer)">Edit</button>
+				<button class="btn btn-default" (click)="deleteWriter(writer)">Delete</button>
+				<button class="btn btn-default" (click)="books(writer)">Books</button>
+			</td>
+		</tr>
+	</table>
+</div>

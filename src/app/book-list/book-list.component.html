@@ -1,0 +1,52 @@
+<div class="container">
+	<h2>List of Books</h2>
+	<div class="search-div">
+			<div class="input-group">
+				<label class="label-input-group" for="genre">Genre:</label>
+				<select id=genre [(ngModel)]="this.bookFilter.genre" class="form-control" >
+					<option [value]=""></option>
+					<option *ngFor="let genre of this.service.GenreList" [value]="genre">{{genre}}</option>
+				</select>
+				<button class="btn btn-default " type="button" (click)="getBooks(this.searchWriter)">Apply Filter</button>
+			</div>
+			<div class="input-group">
+				<label class="label-input-group" for="title">Title:</label>
+				<input id=title type="text" [(ngModel)]="this.bookFilter.title" class="form-control" />
+				<button class="btn btn-default " type="button" (click)="getBooks(this.searchWriter)">Find</button>
+			</div>
+	</div>
+	
+	<p *ngIf="this.bookFilter.writerId">
+		<button class="btn btn-primary" (click)="createBook(writer)">Create New Book (Writer is {{this.bookFilter.writerName}})</button>
+	</p>
+	<div *ngIf="errorMessage" class="alert alert-danger">
+		{{errorMessage}}
+	</div>
+	<table class="table table-striped">
+		<tr>
+			<th>Writer</th>
+			<th>Title</th>
+            <th>Genre</th>
+            <th>Published</th>
+			<th></th>
+		</tr>
+		<tr *ngFor="let book of books">
+			<td>
+				{{book.writerName}}
+			</td>
+			<td>
+				{{book.title}}
+			</td>
+			<td>
+				{{book.genre}}
+            </td>
+            <td>
+				{{book.published}}
+			</td>
+			<td>
+				<button class="btn btn-default" (click)="editBook(book)">Edit</button>
+				<button class="btn btn-default" (click)="deleteBook(book)">Delete</button>
+			</td>
+		</tr>
+	</table>
+</div>

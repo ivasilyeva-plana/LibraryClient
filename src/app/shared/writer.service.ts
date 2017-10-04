@@ -19,7 +19,7 @@ export class WriterService {
     public getWriters(pCountry: string, pWriter: string): Observable<Writer[]> {
         return this.http.get(this.url + "?country=" + pCountry + "&name=" + pWriter).map(
             result => {
-                return result.json();
+                return result.json().result;
             });
     }
 

@@ -6,6 +6,7 @@ import { WriterDeleteComponent } from "./writer-delete/writer-delete.component";
 import { BookListComponent } from "./book-list/book-list.component";
 import { BookCreateEditComponent } from "./book-create-edit/book-create-edit.component";
 import { BookDeleteComponent } from "./book-delete/book-delete.component";
+import { ReportListComponent } from "./report-list/report-list.component";
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: "books", component: BookListComponent },
   { path: "books/edit", component: BookCreateEditComponent},
   { path: "books/create", component: BookCreateEditComponent},
-  { path: "books/delete", component: BookDeleteComponent}
+  { path: "books/delete", component: BookDeleteComponent},
+  { path: "reports", component: ReportListComponent}
 ];
 
 @NgModule({

@@ -14,6 +14,7 @@ import { BookListComponent } from "./book-list/book-list.component";
 import { BookCreateEditComponent } from "./book-create-edit/book-create-edit.component";
 import { BookDeleteComponent } from "./book-delete/book-delete.component";
 import { WriterService, BookService } from "./shared/index";
+import { ReportListComponent } from "./report-list/report-list.component";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { WriterService, BookService } from "./shared/index";
     WriterDeleteComponent,
     BookListComponent,
     BookCreateEditComponent,
-    BookDeleteComponent
+    BookDeleteComponent,
+    ReportListComponent
   ],
   imports: [
     BrowserModule,

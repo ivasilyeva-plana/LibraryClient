@@ -41,7 +41,7 @@
 				{{book.genre}}
             </td>
             <td>
-				{{book.published}}
+				{{book.published | date: 'dd.MM.yyyy'}}
 			</td>
 			<td>
 				<button class="btn btn-default" (click)="editBook(book)">Edit</button>

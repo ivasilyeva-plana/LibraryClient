@@ -1,0 +1,13 @@
+<div class="container">
+    <h2>Reports</h2>
+    <table class="table table-striped">
+		<tr *ngFor="let report of this.reports">
+			<td style = "font-size: 1.25rem;">
+				{{report.title}}
+			</td>
+			<td>
+				<button class="btn btn-default" (click)="viewReport(report.id)">View</button>
+			</td>
+		</tr>
+	</table>
+</div>

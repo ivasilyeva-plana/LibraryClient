@@ -61,12 +61,12 @@ export class BookCreateEditComponent implements OnInit {
     private getBookFromRoute() {
         this.activatedRoute.params.forEach((params: Params) => {
             let bookId = params["bookId"];
-            alert(bookId);
             let writerId = params["writerId"];
             if (bookId) {
                 this.service.getBook(writerId, bookId).subscribe(
                     book => {
                         this.currentBook = book;
+                        this.currentBook.published=this.currentBook.published.slice(0,10);
                         this.bookForm.patchValue(this.currentBook);
                     },
                     error => this.errorMessage = error

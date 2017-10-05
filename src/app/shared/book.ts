@@ -2,7 +2,7 @@ export class Book {
     public bookId: number;
     public title: string;
     public genre: string;
-    public published: Date;
+    public published: string;
     public writerId: string;
     public writerName: string;
 

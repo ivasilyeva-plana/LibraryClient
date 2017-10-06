@@ -10,9 +10,9 @@ import { Report } from "../shared/index";
 })
 
 export class ReportListComponent implements OnInit {
-    reports: Report[] = [new Report(0, "Количество книг за год по месяцам"),
-                         new Report(1, "Количество авторов по странам"),
-                         new Report(2, "Количество книг по жанрам")];
+    reports: Report[] = [new Report("Количество книг за год по месяцам", 1),
+                         new Report("Количество авторов по странам", 2),
+                         new Report("Количество книг по жанрам", 3)];
 
     constructor(private router: Router) { }
 
@@ -20,5 +20,7 @@ export class ReportListComponent implements OnInit {
 
     }
 
-
+    public viewReport(num: number) {
+        this.router.navigate(["reports", num.toString()]);
+    }
 }

@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Количество книг за год по месяцам:</h2>
+	<div class="search-div" style="width: 310px;">
+		<div class="input-group">
+			<label class="label-input-group" for="year" style="width: 115px;">Год издания:</label>
+			<input id=year type="text" [(ngModel)]="this.bookYear" class="form-control"/>
+			<button class="btn btn-default " type="button" (click)="this.getReport()">Get Report</button>
+		</div>
+	</div>
+	<table class="table table-striped">
+		<tr>
+			<th>Месяц</th>
+			<th>Кол-во книг</th>
+		</tr>
+		<tr *ngFor="let r of report">
+			<td>
+				{{r.str}}
+			</td>
+			<td>
+				{{r.num}}
+			</td>
+		</tr>
+	</table>
+</div>

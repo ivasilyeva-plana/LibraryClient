@@ -13,8 +13,11 @@ import { WriterDeleteComponent } from "./writer-delete/writer-delete.component";
 import { BookListComponent } from "./book-list/book-list.component";
 import { BookCreateEditComponent } from "./book-create-edit/book-create-edit.component";
 import { BookDeleteComponent } from "./book-delete/book-delete.component";
-import { WriterService, BookService } from "./shared/index";
+import { WriterService, BookService, ReportService } from "./shared/index";
 import { ReportListComponent } from "./report-list/report-list.component";
+import { ReportYearComponent } from "./report-list/report-year/report-year.component";
+import { ReportCountryComponent } from "./report-list/report-country/report-country.component";
+import { ReportGenreComponent } from "./report-list/report-genre/report-genre.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { ReportListComponent } from "./report-list/report-list.component";
     BookListComponent,
     BookCreateEditComponent,
     BookDeleteComponent,
-    ReportListComponent
+    ReportListComponent,
+    ReportYearComponent,
+    ReportCountryComponent,
+    ReportGenreComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,7 @@ import { ReportListComponent } from "./report-list/report-list.component";
     AppRoutingModule,
     FormsModule
   ],
-  providers: [WriterService, BookService],
+  providers: [WriterService, BookService, ReportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

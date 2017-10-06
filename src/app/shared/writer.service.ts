@@ -17,7 +17,6 @@ export class WriterService {
 
     // Отправка GET запроса нв сервер
     public getWriters(pCountry: string, pWriter: string): Observable<Writer[]> {
-        console.log(this.url + "?country=" + pCountry + "&name=" + pWriter);
         return this.http.get(this.url + "?country=" + pCountry + "&name=" + pWriter).map(
             result => {
                 return result.json().result;

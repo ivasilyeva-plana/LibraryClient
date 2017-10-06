@@ -7,6 +7,9 @@ import { BookListComponent } from "./book-list/book-list.component";
 import { BookCreateEditComponent } from "./book-create-edit/book-create-edit.component";
 import { BookDeleteComponent } from "./book-delete/book-delete.component";
 import { ReportListComponent } from "./report-list/report-list.component";
+import { ReportYearComponent } from "./report-list/report-year/report-year.component";
+import { ReportCountryComponent } from "./report-list/report-country/report-country.component";
+import { ReportGenreComponent } from "./report-list/report-genre/report-genre.component";
 
 const routes: Routes = [
   {
@@ -22,7 +25,11 @@ const routes: Routes = [
   { path: "books/edit", component: BookCreateEditComponent},
   { path: "books/create", component: BookCreateEditComponent},
   { path: "books/delete", component: BookDeleteComponent},
-  { path: "reports", component: ReportListComponent}
+  { path: "reports", component: ReportListComponent},
+  { path: "reports/1", component: ReportYearComponent},
+  { path: "reports/2", component: ReportCountryComponent},
+  { path: "reports/3", component: ReportGenreComponent}
+
 ];
 
 @NgModule({

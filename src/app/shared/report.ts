@@ -1,9 +1,9 @@
 export class Report {
-    public id: number;
-    public title: string;
+    public num: number;
+    public str: string;
 
-    constructor(id, title) {
-        this.id = id;
-        this.title = title;
+    constructor(str, num) {
+        this.num = num;
+        this.str = str;
     }
 }

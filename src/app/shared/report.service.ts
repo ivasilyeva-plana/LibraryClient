@@ -15,7 +15,7 @@ export class ReportService {
 
 
     // Отправка GET запроса нв сервер
-    public getReport(pNum: number, pYear: number = null): Observable<Report[]> {
+    public getReport(pNum: number, pYear: number = 0): Observable<Report[]> {
         return this.http.get(this.url + "?numReport=" + pNum.toString() + "&year=" + pYear.toString()).map(
             result => {
                 return result.json();

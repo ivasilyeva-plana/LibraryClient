@@ -1,3 +1,21 @@
 <div class="container">
     <h2>Количество авторов по странам</h2>
+    <table class="table table-striped">
+		<tr>
+			<th>Страна</th>
+            <th>Кол-во авторов</th>
+            <th></th>
+		</tr>
+		<tr *ngFor="let r of report">
+			<td>
+				{{r.str}}
+			</td>
+			<td>
+				{{r.num}}
+            </td>
+            <td>
+				<button class="btn btn-default" (click)="writers(r)">View Books</button>
+			</td>
+		</tr>
+	</table>
 </div>

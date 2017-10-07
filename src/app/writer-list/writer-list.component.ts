@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { WriterService, Writer, BookFilter } from "../shared/index";
+import { ActivatedRoute, Params, Router } from "@angular/router";
+import { WriterService, Writer, BookFilter, WriterFilter } from "../shared/index";
 
 @Component({
     moduleId: module.id,
@@ -12,13 +12,19 @@ import { WriterService, Writer, BookFilter } from "../shared/index";
 export class WriterListComponent implements OnInit {
     writers: Writer[];
     errorMessage: string;
-    selectedCountry: string = "";
-    searchWriter: string = "";
+    writerFilter: WriterFilter;
 
-    constructor(private service: WriterService,
+    constructor(private activatedRoute: ActivatedRoute,
+        private service: WriterService,
         private router: Router) { }
 
     ngOnInit() {
+        let p = this.activatedRoute.snapshot;
+        let pCountry = p.params["country"];
+        let pWriter = p.params["writer"];
+        if (!pCountry) pCountry="";
+        if (!pWriter) pWriter="";
+        this.writerFilter = new WriterFilter(pCountry, pWriter);
         this.getWriters();
     }
 
@@ -35,8 +41,8 @@ export class WriterListComponent implements OnInit {
     }
 
     private getWriters() {
-
-        this.service.getWriters(this.selectedCountry, this.searchWriter).subscribe(result => {
+        let fl =this.writerFilter
+        this.service.getWriters(fl.country, fl.writer).subscribe(result => {
             this.writers = result;
         });
     }

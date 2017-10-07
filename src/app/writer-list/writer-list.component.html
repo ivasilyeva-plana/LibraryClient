@@ -3,7 +3,7 @@
 	<div class="search-div">
 		<div class="input-group">
 			<label class="label-input-group" for="country">Country:</label>
-			<select id=country [(ngModel)]="selectedCountry" class="form-control" >
+			<select id=country [(ngModel)]="this.writerFilter.country" class="form-control" >
 					<option [value]=""></option>
 					<option *ngFor="let country of this.service.CountryList" [value]="country">{{country}}</option>
 			</select>
@@ -11,7 +11,7 @@
 		</div>
 		<div class="input-group">
 			<label class="label-input-group" for="wr">Writer:</label>
-			<input id=wr type="text" [(ngModel)]="searchWriter" class="form-control" />
+			<input id=wr type="text" [(ngModel)]="this.writerFilter.writer" class="form-control" />
 			<button class="btn btn-default " type="button" (click)="getWriters()">Find</button>
 		</div>
 	</div>

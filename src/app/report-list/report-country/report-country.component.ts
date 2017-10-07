@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import {Router } from "@angular/router";
+import { ReportService, Report, WriterFilter } from "../../shared/index";
 
 @Component({
     moduleId: module.id,
@@ -9,11 +10,24 @@ import {Router } from "@angular/router";
 })
 
 export class ReportCountryComponent implements OnInit {
-
-
-    constructor(private router: Router) { }
-
-    ngOnInit() {
-
+    report: Report[];
+    
+        constructor(private service: ReportService,
+                    private router: Router) { }
+    
+        ngOnInit() {
+            this.getReport()
+        }
+    
+        public getReport() {
+                    this.service.getReport(2).subscribe(result => {
+                        this.report = result;
+                    });
+                }
+        
+        public writers(r: Report) {
+                    let filter = new WriterFilter(r.str, "");
+                    this.router.navigate(["writers", filter]);
+                }
+    
     }
-}

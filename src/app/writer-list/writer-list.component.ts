@@ -1,18 +1,23 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
-import { WriterService, Writer, BookFilter, WriterFilter } from "../shared/index";
+import { NgxPaginationModule } from "ngx-pagination";
+import { WriterService, Writer, BookFilter, WriterFilter, PageInfo } from "../shared/index";
 
 @Component({
     moduleId: module.id,
     selector: "writer-list",
     templateUrl: "writer-list.component.html",
-    styleUrls: ["../../../node_modules/bootstrap/css/bootstrap.css","../app.component.css"]
+    styleUrls: ["../app.component.css"]
 })
 
 export class WriterListComponent implements OnInit {
     writers: Writer[];
     errorMessage: string;
     writerFilter: WriterFilter;
+    pageInfo: PageInfo = new PageInfo(0, 0, 0, 0);
+
+    p: number = 1;
+
 
     constructor(private activatedRoute: ActivatedRoute,
         private service: WriterService,
@@ -25,6 +30,8 @@ export class WriterListComponent implements OnInit {
         if (!pCountry) pCountry="";
         if (!pWriter) pWriter="";
         this.writerFilter = new WriterFilter(pCountry, pWriter);
+        this.pageInfo.pageNumber = 1;
+        console.log("+++ " + this.pageInfo.pageNumber);
         this.getWriters();
     }
 
@@ -39,14 +46,21 @@ export class WriterListComponent implements OnInit {
     public createWriter() {
         this.router.navigate(["writers", "create"]);
     }
-
-    private getWriters() {
+/*
+    private getWritersOld() {
         let fl =this.writerFilter
         this.service.getWriters(fl.country, fl.writer).subscribe(result => {
             this.writers = result;
         });
-    }
+    }*/
 
+    private getWriters() {
+        let fl =this.writerFilter
+        this.service.getWriters(fl.country, fl.writer).subscribe(result => {
+            this.writers = result.writers;
+            this.pageInfo = result.pageInfo;
+        });
+    }
     public createBook(writer: Writer) {
         this.router.navigate(["books", "create", {writerId: writer.id, writerName: writer.name} ]);
     }
@@ -60,5 +74,4 @@ export class WriterListComponent implements OnInit {
         this.router.navigate(["books", filter]);
     }
 
-    
 }

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpModule } from "@angular/http";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormsModule }   from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { WriterListComponent } from "./writer-list/writer-list.component";
 import { WriterCreateEditComponent } from "./writer-create-edit/writer-create-edit.component";
@@ -35,6 +36,7 @@ import { ReportGenreComponent } from "./report-list/report-genre/report-genre.co
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     HttpModule,
     ReactiveFormsModule,
     AppRoutingModule,

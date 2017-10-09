@@ -7,7 +7,7 @@ import { Book, BookService, BookFilter } from "../shared/index";
     moduleId: module.id,
     selector: "book-create-edit",
     templateUrl: "book-create-edit.component.html",
-    styleUrls: ["../../../node_modules/bootstrap/css/bootstrap.css","../app.component.css"]
+    styleUrls: ["../app.component.css"]
 })
 export class BookCreateEditComponent implements OnInit {
     currentBook: Book;

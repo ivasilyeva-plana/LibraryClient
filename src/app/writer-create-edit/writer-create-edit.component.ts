@@ -7,7 +7,7 @@ import { Writer, WriterService } from "../shared/index";
     moduleId: module.id,
     selector: "writer-create-edit",
     templateUrl: "writer-create-edit.component.html",
-    styleUrls: ["../../../node_modules/bootstrap/css/bootstrap.css","../app.component.css"]
+    styleUrls: ["../app.component.css"]
 })
 export class WriterCreateEditComponent implements OnInit {
     currentWriter: Writer;

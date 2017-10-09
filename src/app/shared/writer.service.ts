@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
 import { Writer } from "./writer";
+import { WriterResult } from "./writerResult";
 
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
@@ -16,10 +17,18 @@ export class WriterService {
 
 
     // Отправка GET запроса нв сервер
-    public getWriters(pCountry: string, pWriter: string): Observable<Writer[]> {
+    public getWritersOld(pCountry: string, pWriter: string): Observable<Writer[]> {
         return this.http.get(this.url + "?country=" + pCountry + "&name=" + pWriter).map(
             result => {
-                return result.json().result;
+                return result.json().result.writers;
+            });
+    }
+
+
+    public getWriters(pCountry: string, pWriter: string): Observable<WriterResult> {
+        return this.http.get(this.url + "?country=" + pCountry + "&name=" + pWriter).map(
+            result => {
+                return new WriterResult(result.json().result.writers, result.json().result.pageInfo);
             });
     }
 

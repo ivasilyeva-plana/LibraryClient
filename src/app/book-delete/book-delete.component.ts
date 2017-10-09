@@ -6,8 +6,7 @@ import { Book, BookService, BookFilter } from "../shared/index";
 @Component({
     moduleId: module.id,
     selector: "book-delete",
-    templateUrl: "book-delete.component.html",
-    styleUrls: ["../../../node_modules/bootstrap/css/bootstrap.css"]
+    templateUrl: "book-delete.component.html"
 })
 export class BookDeleteComponent implements OnInit {
 

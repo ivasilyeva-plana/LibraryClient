@@ -1,7 +1,7 @@
 <div class="container">
 	<h2>List of Books</h2>
 	<div class="search-div">
-			<div class="input-group">
+			<div class="form-group form-inline">
 				<label class="label-input-group" for="genre">Genre:</label>
 				<select id=genre [(ngModel)]="this.bookFilter.genre" class="form-control" >
 					<option [value]=""></option>
@@ -9,7 +9,7 @@
 				</select>
 				<button class="btn btn-default " type="button" (click)="getBooks(this.searchWriter)">Apply Filter</button>
 			</div>
-			<div class="input-group">
+			<div class="form-group form-inline">
 				<label class="label-input-group" for="title">Title:</label>
 				<input id=title type="text" [(ngModel)]="this.bookFilter.title" class="form-control" />
 				<button class="btn btn-default " type="button" (click)="getBooks(this.searchWriter)">Find</button>
@@ -30,7 +30,7 @@
             <th>Published</th>
 			<th></th>
 		</tr>
-		<tr *ngFor="let book of books">
+		<tr *ngFor="let book of books | paginate: { itemsPerPage: 5, currentPage: p }">
 			<td>
 				{{book.writerName}}
 			</td>
@@ -49,4 +49,5 @@
 			</td>
 		</tr>
 	</table>
+	<pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

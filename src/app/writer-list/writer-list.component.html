@@ -1,7 +1,7 @@
 <div class="container">
 	<h2>List of Writers</h2>
 	<div class="search-div">
-		<div class="input-group">
+		<div class="form-group form-inline">
 			<label class="label-input-group" for="country">Country:</label>
 			<select id=country [(ngModel)]="this.writerFilter.country" class="form-control" >
 					<option [value]=""></option>
@@ -9,7 +9,7 @@
 			</select>
 			<button class="btn btn-default " type="button" (click)="getWriters()" >Apply Filter</button>
 		</div>
-		<div class="input-group">
+		<div class="form-group form-inline">
 			<label class="label-input-group" for="wr">Writer:</label>
 			<input id=wr type="text" [(ngModel)]="this.writerFilter.writer" class="form-control" />
 			<button class="btn btn-default " type="button" (click)="getWriters()">Find</button>
@@ -27,7 +27,7 @@
 			<th>Country</th>
 			<th></th>
 		</tr>
-		<tr *ngFor="let writer of writers">
+		<tr *ngFor="let writer of writers | paginate: { itemsPerPage: 5, currentPage: p }">
 			<td>
 				{{writer.name}}
 			</td>
@@ -41,4 +41,6 @@
 			</td>
 		</tr>
 	</table>
+					 
+		  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

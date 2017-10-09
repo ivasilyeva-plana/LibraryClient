@@ -6,3 +6,5 @@ export * from "./book.service";
 export * from "./bookFilter";
 export * from "./report";
 export * from "./report.service";
+export * from "./pageInfo";
+export * from "./writerResult";

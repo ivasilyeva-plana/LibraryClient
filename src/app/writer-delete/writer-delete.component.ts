@@ -6,8 +6,7 @@ import { Writer, WriterService } from "../shared/index";
 @Component({
     moduleId: module.id,
     selector: "writer-delete",
-    templateUrl: "writer-delete.component.html",
-    styleUrls: ["../../../node_modules/bootstrap/css/bootstrap.css"]
+    templateUrl: "writer-delete.component.html"
 })
 export class WriterDeleteComponent implements OnInit {
 

@@ -1,5 +1,6 @@
 :host {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12pt;
 }
 #sample-panel {
     margin-left: 20%;
@@ -20,13 +21,12 @@ nav{
 nav a {
     text-decoration: none;
     transition: all 0.2s;
-    font-size: 1rem;
     padding: 7px 15px;
     color: inherit;
 }
 nav a.active {
     border-radius: 3px;
-    background-color: #007bff;
+    background-color: #337ab7;
     color:white;
 }
 #country, #genre{
@@ -34,7 +34,7 @@ nav a.active {
     padding-bottom: 0;
 }
 .search-div{
-    max-width: 400px;
+    max-width: 450px;
 }
 .input-group{
     margin: 0 0 15px;
@@ -43,16 +43,20 @@ nav a.active {
     font-weight: bold;
     margin: 7px 7px 0 0;
     width: 70px;
+    font-size: 12pt;
 }
 .input-group-btn{
     width: 30%;
 }
-.input-group .btn{
+.form-group .btn{
     margin-left: 15px;
 }
-.input-group button{
-    width: 80px;
+.form-group button{
+    width: 95px;
 }
 .btn{
     cursor: pointer;
+}
+.form-control{
+    width: 170px;
 }

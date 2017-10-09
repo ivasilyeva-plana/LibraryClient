@@ -6,7 +6,7 @@ import { ReportService, Report, BookFilter } from "../../shared/index";
     moduleId: module.id,
     selector: "report-genre",
     templateUrl: "report-genre.component.html",
-    styleUrls: ["../../../../node_modules/bootstrap/css/bootstrap.css","../../app.component.css"]
+    styleUrls: ["../../app.component.css"]
 })
 
 export class ReportGenreComponent implements OnInit {

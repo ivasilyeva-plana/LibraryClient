@@ -6,13 +6,13 @@ import { BookService, Book, Writer, BookFilter } from "../shared/index";
     moduleId: module.id,
     selector: "book-list",
     templateUrl: "book-list.component.html",
-    styleUrls: ["../../../node_modules/bootstrap/css/bootstrap.css","../app.component.css"]
+    styleUrls: ["../app.component.css"]
 })
 
 export class BookListComponent implements OnInit {
     books: Book[];
     bookFilter: BookFilter;
-    
+    p: number = 1;
 
     constructor(private activatedRoute: ActivatedRoute,
         private service: BookService,

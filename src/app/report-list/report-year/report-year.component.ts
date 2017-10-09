@@ -6,7 +6,7 @@ import { ReportService, Report } from "../../shared/index";
     moduleId: module.id,
     selector: "report-year",
     templateUrl: "report-year.component.html",
-    styleUrls: ["../../../../node_modules/bootstrap/css/bootstrap.css","../../app.component.css"]
+    styleUrls: ["../../app.component.css"]
 })
 
 export class ReportYearComponent implements OnInit {

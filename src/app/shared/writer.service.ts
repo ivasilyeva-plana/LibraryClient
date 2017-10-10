@@ -10,6 +10,7 @@ import 'rxjs/add/operator/map';
 export class WriterService {
     // адрес сервиса
     private url = "http://localhost:59854/api/Writer";
+    public ErrorMessage: string = "";
 
     CountryList: string[] = ["Англия", "Украина", "Россия", "Ирландия", "Франция", "США", "Шотландия", "Дания"];
 
@@ -20,13 +21,19 @@ export class WriterService {
     public getWritersOld(pCountry: string, pWriter: string): Observable<Writer[]> {
         return this.http.get(this.url + "?country=" + pCountry + "&name=" + pWriter).map(
             result => {
+                let response = result.json();
+                if (!response.isSuccess)
+                {
+                    this.ErrorMessage = response.errorMessage;
+                    return null;
+                }
                 return result.json().result.writers;
             });
     }
 
 
-    public getWriters(pCountry: string, pWriter: string): Observable<WriterResult> {
-        return this.http.get(this.url + "?country=" + pCountry + "&name=" + pWriter).map(
+    public getWriters(pCountry: string, pWriter: string, pPage: number): Observable<WriterResult> {
+        return this.http.get(this.url + "?country=" + pCountry + "&name=" + pWriter  + "&page=" + pPage).map(
             result => {
                 return new WriterResult(result.json().result.writers, result.json().result.pageInfo);
             });

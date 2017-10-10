@@ -27,7 +27,7 @@
 			<th>Country</th>
 			<th></th>
 		</tr>
-		<tr *ngFor="let writer of writers | paginate: { itemsPerPage: 5, currentPage: p }">
+		<tr *ngFor="let writer of writers | paginate: { itemsPerPage: 5, currentPage: this.pageInfo.pageNumber, totalItems: this.pageInfo.totalItems }">
 			<td>
 				{{writer.name}}
 			</td>
@@ -40,7 +40,6 @@
 				<button class="btn btn-default" (click)="books(writer)">Books</button>
 			</td>
 		</tr>
-	</table>
-					 
-		  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+	</table>			 
+		  <pagination-controls (pageChange)="this.pageInfo.pageNumber = $event; getWriters(); "></pagination-controls>
 </div>

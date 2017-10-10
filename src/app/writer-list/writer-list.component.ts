@@ -15,7 +15,6 @@ export class WriterListComponent implements OnInit {
     errorMessage: string;
     writerFilter: WriterFilter;
     pageInfo: PageInfo = new PageInfo(0, 0, 0, 0);
-
     p: number = 1;
 
 
@@ -56,9 +55,10 @@ export class WriterListComponent implements OnInit {
 
     private getWriters() {
         let fl =this.writerFilter
-        this.service.getWriters(fl.country, fl.writer).subscribe(result => {
+        this.service.getWriters(fl.country, fl.writer, this.pageInfo.pageNumber).subscribe(result => {
             this.writers = result.writers;
             this.pageInfo = result.pageInfo;
+            
         });
     }
     public createBook(writer: Writer) {
@@ -73,5 +73,7 @@ export class WriterListComponent implements OnInit {
         let filter = new BookFilter(writer.id, writer.name, "","");
         this.router.navigate(["books", filter]);
     }
+
+    
 
 }
